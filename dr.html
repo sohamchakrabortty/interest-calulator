@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator</title>
+    
+    <style>.container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+  
+  h2 {
+      text-align: center;
+  }
+  
+  label {
+      display: block;
+      margin-bottom: 5px;
+  }
+  
+  input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+  }
+  
+  button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  
+  button:hover {
+      background-color: #0056b3;
+  }
+  
+  #result {
+      margin-top: 20px;
+      font-weight: bold;
+  }
+ 
+   </style>
+</head>
+<body>
+      <div id="hi" ><h1>swarup's personal gpf interest Calculator</h1> </div>
+    <div class="container">
+        <h2>Compound Interest Calculator</h2>
+        <label for="principal">Principal Amount:</label>
+        <input type="number" id="principal">
+        <label for="interest">Annual Interest Rate (%):</label>
+        <input type="number" id="interest">
+        <label for="years">Time for Investment (Years):</label>
+        <input type="number" id="years">
+        <label for="deposit">Monthly Deposit:</label>
+        <input type="number" id="deposit">
+        <button onclick="calculate()">Calculate</button>
+        <div id="result"></div>
+    </div>
+    <script >
+      function calculate() {
+    var principal = parseFloat(document.getElementById('principal').value);
+    var interest = parseFloat(document.getElementById('interest').value);
+    var years = parseInt(document.getElementById('years').value);
+    var deposit = parseFloat(document.getElementById('deposit').value);
+    
+    var val = principal;
+    var monthlyInterestRate = interest / 100 / 12;
+    var totalMonths = years * 12;
+    
+    for (var i = 0; i < totalMonths; i++) {
+        val = val * (1 + monthlyInterestRate) + deposit;
+    }
+    
+    document.getElementById('result').innerHTML = "The total value you got: " + val.toFixed(2);
+}
+
+    </script>
+</body>
+</html>
